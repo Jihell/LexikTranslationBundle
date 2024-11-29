@@ -164,7 +164,7 @@ abstract class AbstractDoctrineStorage implements StorageInterface
      */
     public function countTransUnits(array $locales = null, array $filters = null)
     {
-        return $this->getTransUnitRepository()->count($locales, $filters);
+        return $this->getTransUnitRepository()->countByLocales($locales, $filters);
     }
 
     /**
