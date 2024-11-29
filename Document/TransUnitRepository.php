@@ -207,7 +207,7 @@ class TransUnitRepository extends DocumentRepository
     /**
      * Count the number of trans unit.
      */
-    public function count(array $locales = null, array $filters = null): int
+    public function countByLocales(array $locales = null, array $filters = null): int
     {
         $builder = $this->createQueryBuilder();
 
