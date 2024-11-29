@@ -93,16 +93,16 @@ class TransUnitRepositoryTest extends BaseUnitTestCase
         $dm = $this->loadDatabase();
         $repository = $dm->getRepository(self::DOCUMENT_TRANS_UNIT_CLASS);
 
-        $this->assertEquals(3, $repository->count(null, []));
-        $this->assertEquals(3, $repository->count(['fr', 'de', 'en'], []));
-        $this->assertEquals(3, $repository->count(['fr', 'it'], []));
-        $this->assertEquals(3, $repository->count(['fr', 'de'], ['_search' => false, 'key' => 'good']));
-        $this->assertEquals(1, $repository->count(['fr', 'de'], ['_search' => true, 'key' => 'good']));
-        $this->assertEquals(1, $repository->count(['en', 'de'], ['_search' => true, 'domain' => 'super']));
+        $this->assertEquals(3, $repository->countByLocales(null, []));
+        $this->assertEquals(3, $repository->countByLocales(['fr', 'de', 'en'], []));
+        $this->assertEquals(3, $repository->countByLocales(['fr', 'it'], []));
+        $this->assertEquals(3, $repository->countByLocales(['fr', 'de'], ['_search' => false, 'key' => 'good']));
+        $this->assertEquals(1, $repository->countByLocales(['fr', 'de'], ['_search' => true, 'key' => 'good']));
+        $this->assertEquals(1, $repository->countByLocales(['en', 'de'], ['_search' => true, 'domain' => 'super']));
         $this->assertEquals(1,
-            $repository->count(['en', 'fr', 'de'], ['_search' => true, 'key' => 'hel', 'domain' => 'uper']));
+            $repository->countByLocales(['en', 'fr', 'de'], ['_search' => true, 'key' => 'hel', 'domain' => 'uper']));
         $this->assertEquals(2,
-            $repository->count(['en', 'de'], ['_search' => true, 'key' => 'say', 'domain' => 'ssa']));
+            $repository->countByLocales(['en', 'de'], ['_search' => true, 'key' => 'say', 'domain' => 'ssa']));
     }
 
     /**
