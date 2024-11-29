@@ -113,18 +113,18 @@ class TransUnitRepository extends EntityRepository
      *
      * @return int
      */
-    public function count(array $locales = null,  array $filters = null)
-    {
-        $this->loadCustomHydrator();
+    // public function count(array $locales = null,  array $filters = null)
+    // {
+    //     $this->loadCustomHydrator();
 
-        $builder = $this->createQueryBuilder('tu')
-            ->select('COUNT(DISTINCT tu.id) AS number');
+    //     $builder = $this->createQueryBuilder('tu')
+    //         ->select('COUNT(DISTINCT tu.id) AS number');
 
-        $this->addTransUnitFilters($builder, $filters);
-        $this->addTranslationFilter($builder, $locales, $filters);
+    //     $this->addTransUnitFilters($builder, $filters);
+    //     $this->addTranslationFilter($builder, $locales, $filters);
 
-        return (int) $builder->getQuery()->getResult(Query::HYDRATE_SINGLE_SCALAR);
-    }
+    //     return (int) $builder->getQuery()->getResult(Query::HYDRATE_SINGLE_SCALAR);
+    // }
 
     /**
      * @return array
